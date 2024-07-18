@@ -11,8 +11,12 @@
         <button onclick="saveNotes()">Save Notes</button>
     </div>
     <script>
-        document.getElementById('notes').value = localStorage.getItem('userNotes') || '';
+        // Load saved notes on page load
+        window.onload = function() {
+            document.getElementById('notes').value = localStorage.getItem('userNotes') || '';
+        };
 
+        // Function to save notes
         function saveNotes() {
             var notes = document.getElementById('notes').value;
             localStorage.setItem('userNotes', notes);
